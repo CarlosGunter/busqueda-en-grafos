@@ -34,8 +34,8 @@ export default function Nodes ({ result }) {
 
         <div className='table'>
           <h3>Tipo de sucesores {'('}Comparacion de distancias{')'}</h3>
-          <p><span className='color aqua'></span>Sucesor {' < '} Sucesores, Nodo actual</p>
-          <p><span className='color red'></span>Sucesores{' > '}Sucesor{' > '}Nodo actual</p>
+          <p><span className='color aqua'></span><span className='bold'>Sucesor </span>{' < '} Sucesores, Nodo actual</p>
+          <p><span className='color red'></span>Sucesores{' > '}<span className='bold'>Sucesor</span>{' > '}Nodo actual</p>
           <p><span className='color yellow'></span>Nodo previo</p>
         </div>
 
