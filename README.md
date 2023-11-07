@@ -8,7 +8,7 @@ Se debe ingresar:
 - Sentido de la busqueda
 
 ## Grafo:
-/assets/mapa-grafo.jpg
+/src/assets/mapa-grafo.jpg
 
 ## Tabla de distancias:
-/assets/tabla-grafo.png
+/src/assets/tabla-grafo.png
