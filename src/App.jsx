@@ -4,6 +4,9 @@ import { search } from './Model/search'
 import Nodes from './components/nodes'
 
 function App () {
+  const graphImg = new URL('@assets/mapa_grafo.jpg', import.meta.url).href
+  const tableImg = new URL('@assets/tabla_grafo.png', import.meta.url).href
+
   // Estado que recibe el objeto del algoritmo
   const [result, getResult] = useState(false)
   const handleSubmit = (event) => {
@@ -55,11 +58,11 @@ function App () {
       <section className='image'>
         <div>
           <h3>Grafo</h3>
-          <img src="src/assets/mapa-grafo.jpg" alt="Mapa del grafo" />
+          <img src={graphImg} alt="Mapa del grafo" />
         </div>
         <div>
           <h3>Tabla</h3>
-          <img src="src/assets/tabla-grafo.png" alt=" Tabla de distancias" />
+          <img src={tableImg} alt=" Tabla de distancias" />
         </div>
       </section>
     </>
