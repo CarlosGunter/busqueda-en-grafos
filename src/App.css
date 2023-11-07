@@ -114,7 +114,11 @@ input {
   transition-timing-function: linear;
   animation-timing-function: linear;
 
-  &::before {
+  &:has(.one_node) {
+    justify-content: center;
+  }
+
+  &:has(.node)::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -138,7 +142,8 @@ input {
   }
 }
 
-.node {
+.node,
+.one_node {
   display: grid;
   place-content: center;
   width: 50px;
@@ -149,4 +154,17 @@ input {
 	inset -100px 10px 80px 20px #080707,
 	0 0 16px 6px var(--color-sec),
 	inset 0px 0px 10px 0 #6D6D6D;
+}
+
+.image {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-block: 2rem;
+
+  & div img {
+    width: fit-content;
+    max-width: 400px;
+  }
 }

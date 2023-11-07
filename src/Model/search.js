@@ -84,6 +84,7 @@ export function search ({ nodeI, nodeF, direction }) {
       currentNode = successorsOfNode[minIndex]
     }
   }
+  console.log(nodesTraveled)
 
   // Se retorna un objeto con la ruta, los sucesores de cada nodo recorrido
   // y el estado de la busqueda

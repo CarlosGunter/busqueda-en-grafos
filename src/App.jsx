@@ -4,16 +4,22 @@ import { search } from './Model/search'
 import Nodes from './components/nodes'
 
 function App () {
+  // Estado que recibe el objeto del algoritmo
   const [result, getResult] = useState(false)
   const handleSubmit = (event) => {
     event.preventDefault()
     const inputs = new window.FormData(event.target)
+    // Obtener valor del nodo inicial
     const nodeI = parseInt(inputs.get('initialNode')) - 1
+    // Obtener valor del nodo final
     const nodeF = parseInt(inputs.get('finalNode')) - 1
+    // Obtener direccion
     const direction = inputs.get('direction')
+    // Pasar parametros al algoritmo y obtener el objeto
     getResult(search({ nodeI, nodeF, direction }))
   }
 
+  // Validacion de los inputs para solo permitir numeros del 1 - 28
   const validation = (event) => {
     const range = /^1[0-9]|^2[0-8]|^[1-9]$/
     event.target.value = event.target.value.match(range)
@@ -45,6 +51,17 @@ function App () {
           ? <Nodes result={result}></Nodes>
           : null
       }
+
+      <section className='image'>
+        <div>
+          <h3>Grafo</h3>
+          <img src="src/assets/mapa-grafo.jpg" alt="Mapa del grafo" />
+        </div>
+        <div>
+          <h3>Tabla</h3>
+          <img src="src/assets/tabla-grafo.png" alt=" Tabla de distancias" />
+        </div>
+      </section>
     </>
   )
 }
