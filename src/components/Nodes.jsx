@@ -13,9 +13,9 @@ export default function Nodes ({ result }) {
   }, [result.search])
 
   return (
-      <div className='route'>
+    <div className='route'>
         <h2>Busqueda {status}</h2>
-        <div className="diagram">
+        <div className='diagram'>
           {
             // Iteracion de la ruta de nodos
             [...result.route].map(nodes => {
@@ -25,13 +25,13 @@ export default function Nodes ({ result }) {
 
               // Imprime los el nodo actual y sus sucesores
               return (
-                <div key={nodes.node} className="relation">
+                <div key={nodes.node} className='relation'>
                   <div>
                     {nodes.node + 1}
-                    <span className="distance">{nodes.distance}</span>
+                    <span className='distance'>{nodes.distance}</span>
                   </div>
-                  <Bracket></Bracket>
-                  <Successors result={result} nodes={nodes}></Successors>
+                  <Bracket />
+                  <Successors result={result} nodes={nodes} />
                 </div>
               )
             })
@@ -39,20 +39,20 @@ export default function Nodes ({ result }) {
         </div>
 
         <div className='table'>
-          <h3>Tipo de sucesores {'('}Comparacion de distancias{')'}</h3>
-          <p><span className='color aqua'></span><span className='bold'>Sucesor </span>{' < '} Sucesores, Nodo actual</p>
-          <p><span className='color red'></span>Sucesores{' > '}<span className='bold'>Sucesor</span>{' > '}Nodo actual</p>
-          <p><span className='color yellow'></span>Nodo previo</p>
+          <h3>Tipo de sucesores (Comparacion de distancias)</h3>
+          <p><span className='color aqua' /><span className='bold'>Sucesor </span>{' < '} Sucesores, Nodo actual</p>
+          <p><span className='color red' />Sucesores{' > '}<span className='bold'>Sucesor</span>{' > '}Nodo actual</p>
+          <p><span className='color yellow' />Nodo previo</p>
         </div>
 
-        <section className="widget">
+        <section className='widget'>
           {
             // Imprime la ruta de la busqueda
             [...result.route].length === 1
-              ? <div className="one_node">{[...result.route][0].node + 1}</div>
+              ? <div className='one_node'>{[...result.route][0].node + 1}</div>
               : [...result.route].map(nodes => {
                   return (
-                <div key={nodes.node} className="node">{nodes.node + 1}</div>
+                    <div key={nodes.node} className='node'>{nodes.node + 1}</div>
                   )
                 })
           }
@@ -84,7 +84,7 @@ function Successors ({ result, nodes }) {
           return (
             <p key={successor} className={typeNode}>
               {successor + 1}
-              <span className="distance">
+              <span className='distance'>
                 {result.successors[nodes.node]?.distances[index]}
               </span>
             </p>
