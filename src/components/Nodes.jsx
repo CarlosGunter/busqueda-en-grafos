@@ -14,9 +14,9 @@ export default function Nodes ({ result }) {
 
   return (
     <div className='route'>
-        <h2>Busqueda {status}</h2>
-        <div className='diagram'>
-          {
+      <h2>Busqueda {status}</h2>
+      <div className='diagram'>
+        {
             // Iteracion de la ruta de nodos
             [...result.route].map(nodes => {
               // Evita que se impriman los nodos que no tengan sucesores
@@ -36,29 +36,29 @@ export default function Nodes ({ result }) {
               )
             })
           }
-        </div>
-
-        <div className='table'>
-          <h3>Tipo de sucesores (Comparacion de distancias)</h3>
-          <p><span className='color aqua' /><span className='bold'>Sucesor </span>{' < '} Sucesores, Nodo actual</p>
-          <p><span className='color red' />Sucesores{' > '}<span className='bold'>Sucesor</span>{' > '}Nodo actual</p>
-          <p><span className='color yellow' />Nodo previo</p>
-        </div>
-
-        <section className='widget'>
-          {
-            // Imprime la ruta de la busqueda
-            [...result.route].length === 1
-              ? <div className='one_node'>{[...result.route][0].node + 1}</div>
-              : [...result.route].map(nodes => {
-                  return (
-                    <div key={nodes.node} className='node'>{nodes.node + 1}</div>
-                  )
-                })
-          }
-        </section>
-
       </div>
+
+      <div className='table'>
+        <h3>Tipo de sucesores (Comparacion de distancias)</h3>
+        <p><span className='color aqua' /><span className='bold'>Sucesor </span>{' < '} Sucesores, Nodo actual</p>
+        <p><span className='color red' />Sucesores{' > '}<span className='bold'>Sucesor</span>{' > '}Nodo actual</p>
+        <p><span className='color yellow' />Nodo previo</p>
+      </div>
+
+      <section className='widget'>
+        {
+          // Imprime la ruta de la busqueda
+          [...result.route].length === 1
+            ? <div className='one_node'>{[...result.route][0].node + 1}</div>
+            : [...result.route].map(nodes => {
+                return (
+                  <div key={nodes.node} className='node'>{nodes.node + 1}</div>
+                )
+              })
+          }
+      </section>
+
+    </div>
   )
 }
 
