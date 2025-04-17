@@ -1,4 +1,4 @@
-import { DISTANCE, SUCCESSORS } from './graph'
+import { DISTANCE, SUCCESSORS } from '../graph'
 
 export function search ({ nodeI, nodeF, direction }) {
   // Si el nodo inicial y el nodo final son iguales se retorna el nodo final

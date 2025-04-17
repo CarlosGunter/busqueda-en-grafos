@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import { search } from './utils/search'
+import { search } from './utils/searches/max-pend'
 import Nodes from './components/Nodes'
 
 function App () {
@@ -30,9 +30,17 @@ function App () {
 
   return (
     <>
-      <h1>Busqueda - Maxima pendiente</h1>
+      <h1>Busquedas en grafos</h1>
       <form onSubmit={handleSubmit}>
         <h3>Nodo</h3>
+        <div>
+          <label>
+            <span>Busqueda: </span>
+            <select name='searchType'>
+              <option value='max' defaultChecked>Maxima Pendiente</option>
+            </select>
+          </label>
+        </div>
         <div className='inputs'>
           <label>Inicial:
             <input name='initialNode' type='text' placeholder='1 - 28' required onKeyUp={(value) => { validation(value) }} />
