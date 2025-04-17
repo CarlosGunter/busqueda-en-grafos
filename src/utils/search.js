@@ -30,15 +30,16 @@ export function search ({ nodeI, nodeF, direction }) {
     // Se guarda el nodo anterior
     previousNode = currentNode
     // Obtener los sucesores del nodo actual
-    let successorsOfNode = SUCCESSORS[currentNode]
+    const successorsOfNode = direction === 'normal'
+      // Sentido horario
+      ? SUCCESSORS[currentNode]
+      // Sentido antihorario
+      : SUCCESSORS[currentNode].toReversed()
     // Si no hay sucesores se regresa una busqueda parcial
     if (!successorsOfNode) {
       nodeMeta = 'partial'
       break
     }
-
-    // Si el sentido es antihorario el arreglo se invierte
-    if (direction === 'reverse') successorsOfNode = successorsOfNode.reverse()
 
     // Se obtienen las distancias de cada sucesor respecto al nodo final
     const successorsDistance = []
