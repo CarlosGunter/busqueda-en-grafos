@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import './App.css'
-import { search } from './Model/search'
+import { search } from './utils/search'
 import Nodes from './components/Nodes'
 
 function App () {
-  const graphImg = new URL('@assets/mapa_grafo.jpg', import.meta.url).href
-  const tableImg = new URL('@assets/tabla_grafo.png', import.meta.url).href
+  const graphImg = new URL('@assets/images/mapa_grafo.jpg', import.meta.url).href
+  const tableImg = new URL('@assets/images/tabla_grafo.png', import.meta.url).href
 
   // Estado que recibe el objeto del algoritmo
   const [result, getResult] = useState(false)
@@ -42,27 +42,27 @@ function App () {
           </label>
         </div>
         <label>Sentido:
-          <select name="direction">
-            <option value="normal">Horario</option>
-            <option value="reverse">Antihorario</option>
+          <select name='direction'>
+            <option value='normal'>Horario</option>
+            <option value='reverse'>Antihorario</option>
           </select>
         </label>
         <button type='submit'>Buscar</button>
       </form>
       {
         result
-          ? <Nodes result={result}></Nodes>
+          ? <Nodes result={result} />
           : null
       }
 
       <section className='image'>
         <div>
           <h3>Grafo</h3>
-          <img src={graphImg} alt="Mapa del grafo" />
+          <img src={graphImg} alt='Mapa del grafo' />
         </div>
         <div>
           <h3>Tabla</h3>
-          <img src={tableImg} alt=" Tabla de distancias" />
+          <img src={tableImg} alt=' Tabla de distancias' />
         </div>
       </section>
     </>
