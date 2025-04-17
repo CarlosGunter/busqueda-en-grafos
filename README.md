@@ -1,14 +1,14 @@
-# Busqueda escala maxima pendiente
+# Búsqueda escala máxima pendiente
 
-Algoritmo de busqueda heuristica en grafos.
+Algoritmo de búsqueda heurística en grafos.
 
 Se debe ingresar:
 - Nodo inicial
 - Nodo final
-- Sentido de la busqueda
+- Sentido de la búsqueda
 
 ## Grafo:
-![Grafo](src/assets/mapa_grafo.jpg)
+![Grafo](src/assets/images/mapa_grafo.jpg)
 
 ## Tabla de distancias:
-![Tabla](src/assets/tabla_grafo.png)
+![Tabla](src/assets/images/tabla_grafo.png)
