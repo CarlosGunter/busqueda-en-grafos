@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import { search } from './Model/search'
-import Nodes from './components/nodes'
+import Nodes from './components/Nodes'
 
 function App () {
   const graphImg = new URL('@assets/mapa_grafo.jpg', import.meta.url).href
