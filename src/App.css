@@ -40,6 +40,11 @@ input {
   width: 50px;
 }
 
+.search {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
 .diagram {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -75,7 +80,7 @@ input {
 .table {
   display: grid;
   gap: 1rem;
-  border: 2px solid var(--color-sec);
+  /* border: 2px solid var(--color-sec); */
   border-radius: 15px;
   padding: 1rem;
   width: 300px;

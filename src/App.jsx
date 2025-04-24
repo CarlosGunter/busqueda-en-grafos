@@ -31,32 +31,41 @@ function App () {
   return (
     <>
       <h1>Busquedas en grafos</h1>
-      <form onSubmit={handleSubmit}>
-        <h3>Nodo</h3>
-        <div>
-          <label>
-            <span>Busqueda: </span>
-            <select name='searchType'>
-              <option value='max' defaultChecked>Maxima Pendiente</option>
+      <div className='search'>
+        <form onSubmit={handleSubmit}>
+          <h3>Nodo</h3>
+          <div>
+            <label>
+              <span>Busqueda: </span>
+              <select name='searchType'>
+                <option value='max' defaultChecked>Maxima Pendiente</option>
+              </select>
+            </label>
+          </div>
+          <div className='inputs'>
+            <label>Inicial:
+              <input name='initialNode' type='text' placeholder='1 - 28' required onKeyUp={(value) => { validation(value) }} />
+            </label>
+            <label>Final:
+              <input name='finalNode' type='text' placeholder='1 - 28' required onKeyUp={(value) => { validation(value) }} />
+            </label>
+          </div>
+          <label>Sentido:
+            <select name='direction'>
+              <option value='normal'>Horario</option>
+              <option value='reverse'>Antihorario</option>
             </select>
           </label>
+          <button type='submit'>Buscar</button>
+        </form>
+
+        <div className='table'>
+          <h3>Tipo de sucesores (Comparacion de distancias)</h3>
+          <p><span className='color aqua' /><span className='bold'>Sucesor </span>{' < '} Sucesores, Nodo actual</p>
+          <p><span className='color red' />Sucesores{' > '}<span className='bold'>Sucesor</span>{' > '}Nodo actual</p>
+          <p><span className='color yellow' />Nodo previo</p>
         </div>
-        <div className='inputs'>
-          <label>Inicial:
-            <input name='initialNode' type='text' placeholder='1 - 28' required onKeyUp={(value) => { validation(value) }} />
-          </label>
-          <label>Final:
-            <input name='finalNode' type='text' placeholder='1 - 28' required onKeyUp={(value) => { validation(value) }} />
-          </label>
-        </div>
-        <label>Sentido:
-          <select name='direction'>
-            <option value='normal'>Horario</option>
-            <option value='reverse'>Antihorario</option>
-          </select>
-        </label>
-        <button type='submit'>Buscar</button>
-      </form>
+      </div>
       {
         result
           ? <Nodes result={result} />

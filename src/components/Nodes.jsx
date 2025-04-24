@@ -38,13 +38,6 @@ export default function Nodes ({ result }) {
           }
       </div>
 
-      <div className='table'>
-        <h3>Tipo de sucesores (Comparacion de distancias)</h3>
-        <p><span className='color aqua' /><span className='bold'>Sucesor </span>{' < '} Sucesores, Nodo actual</p>
-        <p><span className='color red' />Sucesores{' > '}<span className='bold'>Sucesor</span>{' > '}Nodo actual</p>
-        <p><span className='color yellow' />Nodo previo</p>
-      </div>
-
       <section className='widget'>
         {
           // Imprime la ruta de la busqueda
