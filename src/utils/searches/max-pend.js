@@ -92,6 +92,7 @@ export function searchMaxPend ({ nodeI, nodeF, direction }) {
   return ({
     route: nodesTraveled,
     successors,
-    search: nodeMeta
+    search: nodeMeta,
+    finalNode: nodeF
   })
 }

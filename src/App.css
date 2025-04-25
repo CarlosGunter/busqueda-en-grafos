@@ -78,7 +78,7 @@ input {
   color: red;
 }
 .final_node {
-  color: green;
+  color: lightcoral;
 }
 
 .table {
@@ -110,8 +110,8 @@ input {
   .red {
     background: red;
   }
-  .green {
-    background: green;
+  .lightcoral {
+    background: lightcoral;
   }
   .bold {
     font-weight: bold;

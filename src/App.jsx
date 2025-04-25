@@ -50,7 +50,7 @@ function App () {
           <p><span className='color aqua' /><span className='bold'>Sucesor </span>{' < '} Sucesores, Nodo actual</p>
           <p><span className='color red' />Sucesores{' > '}<span className='bold'>Sucesor</span>{' > '}Nodo actual</p>
           <p><span className='color yellow' />Nodo previo</p>
-          <p><span className='color green' />Nodo meta</p>
+          <p><span className='color lightcoral' />Nodo meta</p>
         </div>
       </div>
       {
