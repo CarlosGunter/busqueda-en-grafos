@@ -1,5 +1,15 @@
 import { DISTANCE, SUCCESSORS } from '../graph'
-
+/**
+ *
+ * @param {number} params.nodeI - Nodo inicial
+ * @param {number} params.nodeF - Nodo final
+ * @param {string} params.direction - Direccion de la busqueda
+ * @returns {object} - Objeto con los resultados de la busqueda
+ * @returns {object} params.route - Ruta de nodos con distancia y el nodo
+ * @returns {object} params.successors - Sucesores de cada nodo recorrido
+ * @returns {boolean | string} params.search - Estado de la busqueda
+ * @returns {number} params.finalNode - Nodo final
+ */
 export function searchMaxPend ({ nodeI, nodeF, direction }) {
   // Si el nodo inicial y el nodo final son iguales se retorna el nodo final
   if (nodeI === nodeF) {

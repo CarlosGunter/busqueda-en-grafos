@@ -4,12 +4,18 @@ import { searchStrategy } from '../utils/searches-strategy'
 /**
  * Hook que se encarga de obtener los resultados de búsqueda a través
  * de los datos del formulario
+ * @see {@link searchStrategy}
  */
 export function useSearch () {
   // Estado que recibe el objeto del algoritmo
   const [result, setResult] = useState(null)
+  /**
+   * Funcion que se encarga de manejar el evento de submit del formulario
+   * @param {EventHandler} e - Evento de submit del formulario
+   */
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault() // Evita el comportamiento por defecto del formulario
+    // Se obtiene el formulario del evento
     const formData = new window.FormData(e.target)
     // Se extraen los valores introducidos en el formulario
     const {
