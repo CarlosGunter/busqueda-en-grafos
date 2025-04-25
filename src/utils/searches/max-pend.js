@@ -1,6 +1,6 @@
 import { DISTANCE, SUCCESSORS } from '../graph'
 
-export function search ({ nodeI, nodeF, direction }) {
+export function searchMaxPend ({ nodeI, nodeF, direction }) {
   // Si el nodo inicial y el nodo final son iguales se retorna el nodo final
   if (nodeI === nodeF) {
     return {

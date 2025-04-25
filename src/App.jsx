@@ -1,26 +1,12 @@
-import { useState } from 'react'
 import './App.css'
-import { search } from './utils/searches/max-pend'
 import Nodes from './components/Nodes'
+import { useSearch } from './hooks/useSearch'
 
 function App () {
   const graphImg = new URL('@assets/images/mapa_grafo.jpg', import.meta.url).href
   const tableImg = new URL('@assets/images/tabla_grafo.png', import.meta.url).href
 
-  // Estado que recibe el objeto del algoritmo
-  const [result, getResult] = useState(false)
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    const inputs = new window.FormData(event.target)
-    // Obtener valor del nodo inicial
-    const nodeI = parseInt(inputs.get('initialNode')) - 1
-    // Obtener valor del nodo final
-    const nodeF = parseInt(inputs.get('finalNode')) - 1
-    // Obtener direccion
-    const direction = inputs.get('direction')
-    // Pasar parametros al algoritmo y obtener el objeto
-    getResult(search({ nodeI, nodeF, direction }))
-  }
+  const { result, handleSubmit } = useSearch()
 
   // Validacion de los inputs para solo permitir numeros del 1 - 28
   const validation = (event) => {
@@ -38,7 +24,7 @@ function App () {
             <label>
               <span>Busqueda: </span>
               <select name='searchType'>
-                <option value='max' defaultChecked>Maxima Pendiente</option>
+                <option value='maxPend' defaultChecked>Maxima Pendiente</option>
               </select>
             </label>
           </div>
