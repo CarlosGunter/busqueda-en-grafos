@@ -72,6 +72,8 @@ function Successors ({ result, nodes }) {
           // una distancia mayor al nodo actual, es igual al sucesor
           // se colorea de rojo
           if (result.search === successor) typeNode = 'parcial_node'
+          // Si el sucesor es igual al nodo final se pinta de verde
+          if (result.finalNode === successor) typeNode = 'final_node'
 
           // Imprime los sucesores y sus distancias respecto al nodo final
           return (

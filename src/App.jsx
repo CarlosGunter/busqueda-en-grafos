@@ -19,7 +19,7 @@ function App () {
       <h1>Busquedas en grafos</h1>
       <div className='search'>
         <form onSubmit={handleSubmit}>
-          <h3>Nodo</h3>
+          <h3>Parámetros</h3>
           <div>
             <label>
               <span>Busqueda: </span>
@@ -50,6 +50,7 @@ function App () {
           <p><span className='color aqua' /><span className='bold'>Sucesor </span>{' < '} Sucesores, Nodo actual</p>
           <p><span className='color red' />Sucesores{' > '}<span className='bold'>Sucesor</span>{' > '}Nodo actual</p>
           <p><span className='color yellow' />Nodo previo</p>
+          <p><span className='color green' />Nodo meta</p>
         </div>
       </div>
       {

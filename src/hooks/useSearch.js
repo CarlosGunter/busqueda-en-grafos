@@ -31,6 +31,7 @@ export function useSearch () {
       nodeF: finalNodeInt,
       direction: directionStr
     })
+    console.log(searchResult)
     // Se actualiza el estado con el resultado de la busqueda
     setResult(searchResult)
   }

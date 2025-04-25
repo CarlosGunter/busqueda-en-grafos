@@ -77,6 +77,9 @@ input {
 .parcial_node {
   color: red;
 }
+.final_node {
+  color: green;
+}
 
 .table {
   display: grid;
@@ -106,6 +109,9 @@ input {
   }
   .red {
     background: red;
+  }
+  .green {
+    background: green;
   }
   .bold {
     font-weight: bold;
