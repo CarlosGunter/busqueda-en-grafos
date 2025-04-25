@@ -15,7 +15,7 @@ function App () {
   }
 
   return (
-    <>
+    <main className='container'>
       <h1>Busquedas en grafos</h1>
       <div className='search'>
         <form onSubmit={handleSubmit}>
@@ -69,7 +69,7 @@ function App () {
           <img src={tableImg} alt=' Tabla de distancias' />
         </div>
       </section>
-    </>
+    </main>
   )
 }
 
