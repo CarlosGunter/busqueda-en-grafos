@@ -23,8 +23,12 @@ function App () {
           <div>
             <label>
               <span>Busqueda: </span>
-              <select name='searchType'>
-                <option value='maxPend' defaultChecked>Maxima Pendiente</option>
+              <select name='searchType' defaultValue='maxPend'>
+                <option value='ancho'>A lo ancho</option>
+                <option value='profundidad'>En profundidad</option>
+                <option value='maxPend'>Maxima Pendiente</option>
+                <option value='simple'>Escalada simple</option>
+                <option value='primMej'>Primero mejor</option>
               </select>
             </label>
           </div>

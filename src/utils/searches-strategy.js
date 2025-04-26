@@ -5,7 +5,11 @@ import { searchMaxPend } from './searches/max-pend'
 // * La clave es el valor que tiene en el formulario
 // * El valor es la funcion que se ejecutara
 const strategys = {
-  maxPend: searchMaxPend
+  maxPend: searchMaxPend,
+  ancho: null,
+  profundidad: null,
+  simple: null,
+  primMej: null
 }
 
 /**
