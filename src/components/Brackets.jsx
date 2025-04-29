@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Bracket } from '../assets/svg'
+import NodeTypes from './NodeTypes'
 
 export default function Nodes ({ result }) {
   // Estado del tipo de busqueda que se obtuvo en el algoritmo
@@ -15,6 +16,15 @@ export default function Nodes ({ result }) {
   return (
     <div className='route'>
       <h2>Busqueda {status}</h2>
+
+      <NodeTypes
+        title='Comparacion de distancias'
+        successor='Siguiente sucesor'
+        searchPartial='Nodo que trunca la busqueda'
+        prevNode='Nodo previo'
+        finalNode='Nodo meta'
+      />
+
       <div className='diagram'>
         {
             // Iteracion de la ruta de nodos
