@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Bracket } from '../assets/svg'
 import NodeTypes from './NodeTypes'
+import Widget from './Widget'
 
 export default function Brackets ({ result }) {
   // Estado del tipo de busqueda que se obtuvo en el algoritmo
@@ -48,7 +49,8 @@ export default function Brackets ({ result }) {
           }
       </div>
 
-      <section className='widget'>
+      <Widget route={result.route} />
+      {/* <section className='widget'>
         {
           // Imprime la ruta de la busqueda
           [...result.route].length === 1
@@ -59,7 +61,7 @@ export default function Brackets ({ result }) {
                 )
               })
           }
-      </section>
+      </section> */}
 
     </div>
   )
