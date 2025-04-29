@@ -1,14 +1,15 @@
 // Se importan los algoritmos de busqueda
 import { searchMaxPend } from './searches/max-pend'
+import { searchSimple } from './searches/simple'
 
 // Aqui se definen los algoritmos de busqueda a utilizar
 // * La clave es el valor que tiene en el formulario
 // * El valor es la funcion que se ejecutara
 const strategys = {
-  maxPend: searchMaxPend,
   ancho: null,
   profundidad: null,
-  simple: null,
+  simple: searchSimple,
+  maxPend: searchMaxPend,
   primMej: null
 }
 
