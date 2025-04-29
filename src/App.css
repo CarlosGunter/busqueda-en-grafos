@@ -68,6 +68,18 @@ input {
     height: 220px;
   }
 }
+.table_result {
+  display: flex;
+  overflow-x: auto;
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid #fff;
+  }
+}
+
 .next_node {
   color: aqua;
 }

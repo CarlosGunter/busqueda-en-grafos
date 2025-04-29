@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Bracket } from '../assets/svg'
 import NodeTypes from './NodeTypes'
 
-export default function Nodes ({ result }) {
+export default function Brackets ({ result }) {
   // Estado del tipo de busqueda que se obtuvo en el algoritmo
   const [status, setStatus] = useState(null)
   useEffect(() => {

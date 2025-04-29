@@ -1,6 +1,7 @@
 import './App.css'
-import Nodes from './components/Brackets'
+import Brackets from './components/Brackets'
 import Form from './components/Form'
+import Table from './components/Table'
 import { useSearch } from './hooks/useSearch'
 
 function App () {
@@ -17,11 +18,11 @@ function App () {
         <Form handleSubmit={handleSubmit} />
       </div>
 
-      {
-        result
-          ? <Nodes result={result} />
-          : null
-      }
+      {result && (
+        result.type === 'table'
+          ? <Table result={result} />
+          : <Brackets result={result} />
+      )}
 
       <section className='image'>
         <div>
