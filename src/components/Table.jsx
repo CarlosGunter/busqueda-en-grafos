@@ -1,7 +1,16 @@
+import Widget from './Widget'
+
 export default function Table ({ result }) {
   return (
     <div>
       <h2>Busqueda completa</h2>
+
+      <Table
+        title='Tabla de nodos'
+        successor='Siguiente sucesor'
+        finalNode='Nodo meta'
+      />
+
       <div className='table_result'>
         {result.table.map((node) => {
           return (
@@ -13,6 +22,9 @@ export default function Table ({ result }) {
           )
         })}
       </div>
+
+      <Widget route={result.route} />
+
     </div>
   )
 }
