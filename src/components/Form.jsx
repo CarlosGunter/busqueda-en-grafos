@@ -4,14 +4,14 @@ const validation = (event) => {
   event.target.value = event.target.value.match(range)
 }
 
-export default function Form ({ handleSubmit }) {
+export default function Form ({ handleSubmit, onChangeSearch }) {
   return (
     <form onSubmit={handleSubmit}>
       <h3>Parámetros</h3>
       <div>
         <label>
           <span>Busqueda: </span>
-          <select name='searchType' defaultValue='maxPend'>
+          <select name='searchType' defaultValue='maxPend' onChange={onChangeSearch}>
             <option value='ancho'>A lo ancho</option>
             <option value='profundidad'>En profundidad</option>
             <option value='maxPend'>Maxima Pendiente</option>
