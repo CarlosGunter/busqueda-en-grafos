@@ -2,7 +2,11 @@
 
 Se implementan algunas técnicas de búsqueda en un grafo ya definido en la aplicación.
 Actualmente se encuentran los siguientes algoritmos:
-- Búsqueda escalada maxima pendiente.
+- Búsqueda a lo ancho.
+- Búsqueda escalada simple.
+- Búsqueda escalada máxima pendiente.
+- Búsqueda primero mejor.
+
 
 Se debe ingresar:
 - Tipo de búsqueda.
