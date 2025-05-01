@@ -6,7 +6,7 @@ export default function NodeTypes ({
   finalNode
 }) {
   return (
-    <div className='table'>
+    <div className='node_info'>
       <h3>{title}</h3>
       {/* <h3>Tipo de sucesores (Comparacion de distancias)</h3> */}
       {successor && (

@@ -8,7 +8,7 @@ export default function Widget ({ route }) {
           : route.map(nodes => {
             return (
               <div key={nodes.node ?? nodes} className='node'>
-                {nodes.node + 1 ?? nodes + 1}
+                {(nodes.node ?? nodes) + 1}
               </div>
             )
           })

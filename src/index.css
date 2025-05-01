@@ -28,6 +28,8 @@ a:hover {
 body {
   margin: 1rem;
   min-width: 320px;
+  max-width: 1100px;
+  margin: auto;
   min-height: 100vh;
   & > div {
     display: grid;

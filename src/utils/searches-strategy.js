@@ -2,12 +2,13 @@
 import { searchMaxPend } from './searches/max-pend'
 import { searchSimple } from './searches/simple'
 import { searchPrimMejor } from './searches/prim-mejor'
+import { searchAncho } from './searches/ancho'
 
 // Aqui se definen los algoritmos de busqueda a utilizar
 // * La clave es el valor que tiene en el formulario
 // * El valor es la funcion que se ejecutara
 const strategys = {
-  ancho: null,
+  ancho: searchAncho,
   profundidad: null,
   simple: searchSimple,
   maxPend: searchMaxPend,

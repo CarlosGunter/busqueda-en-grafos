@@ -114,15 +114,27 @@ input {
     height: 220px;
   }
 }
-.table_result {
-  display: flex;
-  overflow-x: auto;
 
+.table {
+  display: flex;
+  justify-content: center;
+  margin-inline: auto;
+  max-width: min(1100px, 90vw);
+  
   .column {
     display: flex;
     flex-direction: column;
-    padding: 10px;
+  }
+  
+  .table_result{
+    display: flex;
+    overflow-x: auto;
+    min-width: 0;
+  }
+
+  span {
     border: 1px solid #fff;
+    padding: 0.75rem;
   }
 }
 
@@ -139,7 +151,7 @@ input {
   color: lightcoral;
 }
 
-.table {
+.node_info {
   display: grid;
   gap: 1rem;
   /* border: 2px solid var(--color-sec); */
