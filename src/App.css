@@ -191,6 +191,8 @@ input {
   display: flex;
   justify-content: space-between;
   place-items: center;
+  overflow-x: auto;
+  max-width: min(1100px, 90vw);
   position: relative;
   margin: 30px;
   transition-timing-function: linear;
@@ -242,6 +244,7 @@ input {
   border-radius: 100%;
   /* border: var(--clr-primary) 1px solid; */
   background: #000;
+  flex-shrink: 0;
 }
 
 .image {
