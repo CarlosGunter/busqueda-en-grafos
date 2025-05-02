@@ -50,18 +50,6 @@ export default function Brackets ({ result }) {
       </div>
 
       <Widget route={result.route} />
-      {/* <section className='widget'>
-        {
-          // Imprime la ruta de la busqueda
-          [...result.route].length === 1
-            ? <div className='one_node'>{[...result.route][0].node + 1}</div>
-            : [...result.route].map(nodes => {
-                return (
-                  <div key={nodes.node} className='node'>{nodes.node + 1}</div>
-                )
-              })
-          }
-      </section> */}
 
     </div>
   )

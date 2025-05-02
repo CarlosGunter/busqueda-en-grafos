@@ -93,8 +93,12 @@ input {
   gap: 1.5rem;
 }
 .diagram {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  max-width: min(1100px, 90vw);
+  margin: auto;
 }
 .distance {
   vertical-align: sub;

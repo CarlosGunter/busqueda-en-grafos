@@ -52,6 +52,7 @@ export function searchPrimMejor ({ nodeI, nodeF, direction }) {
       g = DISTANCE[currentNode][succesor]
       h = DISTANCE[succesor][nodeF]
       f = g + h
+
       successorsF.push(f)
       successorsFStr.push(`${g} + ${h} = ${f}`)
     })
@@ -62,33 +63,30 @@ export function searchPrimMejor ({ nodeI, nodeF, direction }) {
     }
 
     // Se evalua si el nodo es meta
-    if (successorsF.includes(0)) {
+    if (successorsOfNode.includes(nodeF)) {
       // Se agrega el nodo a la ruta
       nodesTraveled.push({
-        node: successorsOfNode[successorsF.indexOf(0)],
+        node: nodeF,
         distance: 0,
         previousNode
       })
       basicRoute.push(currentNode)
       nodeMeta = true // Nodo meta encontrado
     } else {
-      // Se obtiene el valor menor del arreglo de distancias
-      const minDistance = Math.min(...successorsF)
-      // Si la distancia menor de los sucesores del nodo actual es mayor que la
-      // del nodo actual respecto al nodo final, se retorna una busqueda parcial
-      if (minDistance >= DISTANCE[currentNode][nodeF]) {
-        nodeMeta = successorsOfNode[successorsF.indexOf(minDistance)]
-        break
-      }
+      // Se obtiene el valor menor del arreglo de la funcion heuristica
+      const ignoreRepeated = successorsF.filter(item => {
+        return !nodesTraveled.some(node => node.node === item)
+      })
+      const minDistance = Math.min(...ignoreRepeated)
 
       // Se agrega el nodo sucesor con la distancia menor a la ruta de nodos
-      const minIndex = successorsF.indexOf(minDistance)
+      const minIndex = ignoreRepeated.indexOf(minDistance)
       nodesTraveled.push({
         node: successorsOfNode[minIndex],
         distance: minDistance,
         previousNode
       })
-      basicRoute.push(currentNode)
+      basicRoute.push(successorsOfNode[minIndex])
 
       // El sucesor con menor distancia al nodo final se asigna como nodo actual
       currentNode = successorsOfNode[minIndex]
