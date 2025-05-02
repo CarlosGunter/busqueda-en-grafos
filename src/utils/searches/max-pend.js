@@ -1,6 +1,8 @@
 import { DISTANCE, SUCCESSORS } from '../graph'
+
 /**
  *
+ * Búsqueda escalada en maximo pendiente
  * @param {number} params.nodeI - Nodo inicial
  * @param {number} params.nodeF - Nodo final
  * @param {string} params.direction - Direccion de la busqueda

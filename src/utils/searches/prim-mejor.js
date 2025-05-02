@@ -1,5 +1,17 @@
 import { DISTANCE, SUCCESSORS } from '../graph'
 
+/**
+ *
+ * Búsqueda primero mejor
+ * @param {number} params.nodeI - Nodo inicial
+ * @param {number} params.nodeF - Nodo final
+ * @param {string} params.direction - Direccion de la busqueda
+ * @returns {object} - Objeto con los resultados de la busqueda
+ * @returns {object} params.route - Ruta de nodos con distancia y el nodo
+ * @returns {object} params.successors - Sucesores de cada nodo recorrido
+ * @returns {boolean | string} params.search - Estado de la busqueda
+ * @returns {number} params.finalNode - Nodo final
+ */
 export function searchPrimMejor ({ nodeI, nodeF, direction }) {
   // Si el nodo inicial y el nodo final son iguales se retorna el nodo final
   if (nodeI === nodeF) {
@@ -20,11 +32,11 @@ export function searchPrimMejor ({ nodeI, nodeF, direction }) {
   let h = DISTANCE[nodeI][nodeF] // Distanacia al nodo final
   let f = g + h // Funcion heuristica
   // Se agrega el nodo inicial a la ruta
-  const nodesTraveled = [ // Ruta de nodos con distancia
+  const nodesTraveled = [ // Ruta de nodos con funcion heuristica
     { node: nodeI, distance: `${g} + ${h} = ${f}` }
   ]
   const basicRoute = [nodeI] // Ruta de nodos
-  // Distancias de los sucesores de cada nodo de la ruta final
+  // Funcion heuristica de los sucesores de cada nodo en la ruta final
   const successors = {}
   let currentNode = nodeI // El nodo actual sera iniciado en el nodo inicial
   let previousNode // Nodo anterior
@@ -45,9 +57,9 @@ export function searchPrimMejor ({ nodeI, nodeF, direction }) {
       break
     }
 
-    // Se obtienen las distancias de cada sucesor respecto al nodo final
-    const successorsF = []
-    const successorsFStr = []
+    // Se obtienen la funcion heuristica de cada sucesor
+    const successorsF = [] // Valor numerico
+    const successorsFStr = [] // String para mostrar en la interfaz
     successorsOfNode.forEach(succesor => {
       g = DISTANCE[currentNode][succesor]
       h = DISTANCE[succesor][nodeF]
@@ -56,7 +68,7 @@ export function searchPrimMejor ({ nodeI, nodeF, direction }) {
       successorsF.push(f)
       successorsFStr.push(`${g} + ${h} = ${f}`)
     })
-    // Se guardan las distancias de cada sucesor respecto al nodo final
+    // Se guardan la funcion heuristica de cada sucesor
     successors[currentNode] = {
       values: successorsOfNode,
       distances: successorsFStr
@@ -73,13 +85,14 @@ export function searchPrimMejor ({ nodeI, nodeF, direction }) {
       basicRoute.push(currentNode)
       nodeMeta = true // Nodo meta encontrado
     } else {
-      // Se obtiene el valor menor del arreglo de la funcion heuristica
+      // Se filtan los sucesores no visitados
       const ignoreRepeated = successorsF.filter(item => {
         return !nodesTraveled.some(node => node.node === item)
       })
+      // Se obtiene el valor menor del arreglo de la funcion heuristica
       const minDistance = Math.min(...ignoreRepeated)
 
-      // Se agrega el nodo sucesor con la distancia menor a la ruta de nodos
+      // Se agrega el nodo sucesor con menor valor heuristico a la ruta de nodos
       const minIndex = ignoreRepeated.indexOf(minDistance)
       nodesTraveled.push({
         node: successorsOfNode[minIndex],

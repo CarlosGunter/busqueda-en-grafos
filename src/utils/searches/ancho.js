@@ -1,5 +1,16 @@
 import { SUCCESSORS } from '../graph'
 
+/**
+ * Búsqueda a lo ancho
+ * @param {number} params.nodeI - Nodo inicial
+ * @param {number} params.nodeF - Nodo final
+ * @param {string} params.direction - Direccion de la búsqueda
+ * @returns {object} - Resultado de la búsqueda
+ * @returns {string} params.type - Tipo de UI (Tabla)
+ * @returns {array} params.table - Tabla de nodos recorridos
+ * @returns {array} params.route - Ruta de la búsqueda
+ * @returns {number} params.finalNode - Nodo final
+ */
 export function searchAncho ({ nodeI, nodeF, direction }) {
   // Validaciones iniciales
   if (nodeI === nodeF) {
@@ -20,12 +31,15 @@ export function searchAncho ({ nodeI, nodeF, direction }) {
     }
   }
 
+  // Se inicializa la lista de nodos recorridos
   const nodesTraveled = [{ node: nodeI, revisado: false, previousNode: null }]
+  // Bandera para verificar si se ha encontrado el nodo final
   let foundNode = false
+  // Se inicializa el nodo actual
   let currentNode = nodeI
-
+  // Bucle de busqueda
   while (!foundNode) {
-    // Se cambia al estado de revisado
+    // Se cambia al estado a revisado del nodo actual
     const currentNodeIndex = nodesTraveled.findIndex(
       node => node.node === currentNode
     )
@@ -37,14 +51,15 @@ export function searchAncho ({ nodeI, nodeF, direction }) {
     }
     // Se obtiene los sucesores del nodo actual
     const nextNodes = direction === 'normal'
-      ? SUCCESSORS[currentNode]
-      : SUCCESSORS[currentNode].toReversed()
+      ? SUCCESSORS[currentNode] // Sentido horario
+      : SUCCESSORS[currentNode].toReversed() // Sentido antihorario
     // Si no hay sucesores se termina la busqueda
     if (!nextNodes) {
       break
     }
     // Agregar sucesores a la lista de nodos recorridos
     nextNodes.forEach(successor => {
+      // Se verifica si el sucesor ya fue revisado o no
       if (!nodesTraveled.some(node => node.node === successor)) {
         nodesTraveled.push({
           node: successor,
@@ -53,20 +68,20 @@ export function searchAncho ({ nodeI, nodeF, direction }) {
         })
       }
     })
-    // Se busca y actualiza el siguiente nodo a revisar
+    // Se busca y actualiza el siguiente nodo a revisar (no revisado)
     currentNode = nodesTraveled.find(node => !node.revisado)?.node
   }
-  // Se crea la ruta de la busqueda
-  const route = []
+  // Ruta de la busqueda
+  const route = [currentNode]
   let flagNode = nodeF
   while (flagNode !== nodeI) {
-    const { node, previousNode } = nodesTraveled.find(
+    // Se busca el nodo previo en la lista de nodos recorridos
+    const { previousNode } = nodesTraveled.find(
       node => node.node === flagNode
     )
-    route.unshift(node)
+    route.unshift(previousNode) // Se agrega el nodo al inicio
     flagNode = previousNode
   }
-  route.unshift(nodeI)
 
   return {
     type: 'table',

@@ -1,5 +1,16 @@
 import { SUCCESSORS } from '../graph'
 
+/**
+ * Búsqueda en profundidad
+ * @param {number} params.nodeI - Nodo inicial
+ * @param {number} params.nodeF - Nodo final
+ * @param {string} params.direction - Direccion de la búsqueda
+ * @returns {object} - Resultado de la búsqueda
+ * @returns {string} params.type - Tipo de UI (Tabla)
+ * @returns {array} params.table - Tabla de nodos recorridos
+ * @returns {array} params.route - Ruta de la búsqueda
+ * @returns {number} params.finalNode - Nodo final
+ */
 export function searchProfundidad ({ nodeI, nodeF, direction }) {
   // Validación de caso trivial: inicio y fin son iguales
   if (nodeI === nodeF) {
