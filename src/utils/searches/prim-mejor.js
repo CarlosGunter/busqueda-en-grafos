@@ -86,17 +86,23 @@ export function searchPrimMejor ({ nodeI, nodeF, direction }) {
       nodeMeta = true // Nodo meta encontrado
     } else {
       // Se filtan los sucesores no visitados
-      const ignoreRepeated = successorsF.filter(item => {
-        return !nodesTraveled.some(node => node.node === item)
+      const ignoreRepeated = successorsF.filter((item, i) => {
+        return !nodesTraveled.some(node =>
+          node.node === successorsOfNode[i]
+        )
       })
+      if (ignoreRepeated.length === 0) {
+        nodeMeta = 'partial'
+        break
+      }
       // Se obtiene el valor menor del arreglo de la funcion heuristica
       const minDistance = Math.min(...ignoreRepeated)
 
       // Se agrega el nodo sucesor con menor valor heuristico a la ruta de nodos
-      const minIndex = ignoreRepeated.indexOf(minDistance)
+      const minIndex = successorsF.indexOf(minDistance)
       nodesTraveled.push({
         node: successorsOfNode[minIndex],
-        distance: minDistance,
+        distance: successorsFStr[minIndex],
         previousNode
       })
       basicRoute.push(successorsOfNode[minIndex])
