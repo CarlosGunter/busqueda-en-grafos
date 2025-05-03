@@ -11,7 +11,7 @@ export default function Form ({ handleSubmit, onChangeSearch }) {
       <div>
         <label>
           <span>Busqueda: </span>
-          <select name='searchType' defaultValue='maxPend' onChange={onChangeSearch}>
+          <select name='searchType' defaultValue='ancho' onChange={onChangeSearch}>
             <option value='ancho'>A lo ancho</option>
             <option value='profundidad'>En profundidad</option>
             <option value='maxPend'>Maxima Pendiente</option>
